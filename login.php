@@ -1,0 +1,236 @@
+<?php
+require_once __DIR__ . '/_class/session_helper.php';
+agp_session_start();
+
+if (agp_is_authenticated()) {
+    header('Location: index.php');
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Agenda Pro Medic</title>
+    <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="CodedThemes">
+    <meta name="keywords" content=" Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="CodedThemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    
+</head>
+
+<body class="fix-menu">
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+    <div class="ball-scale">
+        <div class='contain'>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+            <div class="ring"><div class="frame"></div></div>
+        </div>
+    </div>
+</div>
+    <!-- Pre-loader end -->
+
+    <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+        <!-- Container-fluid starts -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!-- Authentication card start -->
+                    <div class="login-card card-block auth-body mr-auto ml-auto">
+                        <form class="md-float-material">
+                            <div class="text-center">
+                                <img src="assets/images/logo.jpg" width="99%" alt="logo.jpg">
+                            </div>
+                            <div class="auth-box">
+                                <div class="row m-b-20">
+                                    <div class="col-md-12">
+                                        <h3 class="text-left txt-primary"> Iniciar Sesión </h3>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="input-group">
+                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresa tu usuario" >
+                                    <span class="md-line"></span>
+                                </div>
+                                <div class="input-group">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" >
+                                    <span class="md-line"></span>
+                                </div>
+                                <div class="row m-t-30">
+                                    <div class="col-md-12">
+                                        <button type="button" id="btn_login" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Entrar</button>
+                                    </div>
+                                </div>
+                                <hr/>
+                                <div class="row m-b-20">
+                                    <div class="col-md-12" style="color:black" align="left">
+                                        <label>Da Clic Aqui para Agendar Cita:</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <a href="agenda/" type="button" class="btn btn-warning btn-md btn-block waves-effect text-center m-b-20">Agendar Cita</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+                        <!-- end of form -->
+                    </div>
+                    <!-- Authentication card end -->
+                </div>
+                <!-- end of col-sm-12 -->
+            </div>
+            <!-- end of row -->
+        </div>
+        <!-- end of container-fluid -->
+    </section>
+
+    
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+<div class="ie-warning">
+    <h1>Warning!!</h1>
+    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+    <div class="iew-container">
+        <ul class="iew-download">
+            <li>
+                <a href="http://www.google.com/chrome/">
+                    <img src="assets/images/browser/chrome.png" alt="Chrome">
+                    <div>Chrome</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.mozilla.org/en-US/firefox/new/">
+                    <img src="assets/images/browser/firefox.png" alt="Firefox">
+                    <div>Firefox</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://www.opera.com">
+                    <img src="assets/images/browser/opera.png" alt="Opera">
+                    <div>Opera</div>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.apple.com/safari/">
+                    <img src="assets/images/browser/safari.png" alt="Safari">
+                    <div>Safari</div>
+                </a>
+            </li>
+            <li>
+                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                    <img src="assets/images/browser/ie.png" alt="">
+                    <div>IE (9 & above)</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <p>Sorry for the inconvenience!</p>
+</div>
+<![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+    
+
+    <script type="text/javascript" src="assets/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="assets/js/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="assets/js/modernizr/css-scrollbars.js"></script>
+    <script type="text/javascript" src="assets/js/common-pages.js"></script>
+
+
+    <script>
+$(document).ready(function () {
+    $("#btn_login").on("click", function () {
+        const usuario = $("#usuario").val().trim();
+        const password = $("#password").val().trim();
+
+        if (usuario === "" || password === "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Campos vacíos',
+                text: 'Por favor completa todos los campos.',
+                confirmButtonColor: '#0d6efd'
+            });
+            return;
+        }
+
+        $.ajax({
+            url: "_actions/login.php",
+            method: "POST",
+            data: { usuario: usuario, password: password },
+            dataType: "json",
+            success: function (response) {
+                if (response.success === 1) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Bienvenido',
+                        text: 'Inicio de sesión exitoso.',
+                        timer: 1500,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = "./";
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Acceso denegado',
+                        text: 'Usuario o contraseña incorrectos.',
+                        confirmButtonColor: '#dc3545'
+                    });
+                }
+            },
+            error: function () {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error del servidor',
+                    text: 'No se pudo procesar la solicitud.',
+                    confirmButtonColor: '#dc3545'
+                });
+            }
+        });
+    });
+});
+</script>
+
+</body>
+
+</html>
