@@ -4,7 +4,7 @@ require_once __DIR__ . '/../_config/runtime.php';
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Agenda tu cita médica</title>
+    <title>Agenda tu cita mï¿½dica</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap/css/bootstrap.min.css">
@@ -51,7 +51,7 @@ require_once __DIR__ . '/../_config/runtime.php';
                             <div class="auth-box" id="registro">
                                 <div class="row m-b-20">
                                     <div class="col-md-12">
-                                        <h3 class="text-center txt-primary">Agendar Cita Médica</h3>
+                                        <h3 class="text-center txt-primary">Agendar Cita MÃ©dica</h3>
                                     </div>
                                 </div>
                                 <hr/>
@@ -65,10 +65,10 @@ require_once __DIR__ . '/../_config/runtime.php';
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">
-                                    <input type="number" id="telefono" name="telefono" class="form-control" placeholder="Teléfono (10 dígitos)" maxlength="10" onKeyDown="limitText(this,10);" onKeyUp="limitText(this,10);" required>
+                                    <input type="number" id="telefono" name="telefono" class="form-control" placeholder="TelÃ©fono (10 dÃ­gitos)" maxlength="10" onKeyDown="limitText(this,10);" onKeyUp="limitText(this,10);" required>
                                     <span class="md-line"></span>
                                     
-                                    <input type="email" id="correo" name="correo" class="form-control" placeholder="Correo electrónico">
+                                    <input type="email" id="correo" name="correo" class="form-control" placeholder="Correo electrÃ³nico">
                                     <span class="md-line"></span>
                                 </div>
 
@@ -103,7 +103,7 @@ require_once __DIR__ . '/../_config/runtime.php';
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <select class="form-control" id="hora_cita" name="hora_cita" required style="width: 100%;">
-                                                <option value="">Seleccione fecha y médico</option>
+                                                <option value="">Seleccione fecha y mÃ©dico</option>
                                             </select>
                                             <span class="md-line"></span>
                                         </div>
@@ -112,7 +112,7 @@ require_once __DIR__ . '/../_config/runtime.php';
                                 
                                 <div class="form-group m-t-15">
                                     <label for="motivo" class="text-left text-dark d-block">Motivo de la Cita:</label>
-                                    <textarea id="motivo" name="motivo" class="form-control" rows="3" placeholder="Breve descripción del síntoma o motivo..." required></textarea>
+                                    <textarea id="motivo" name="motivo" class="form-control" rows="3" placeholder="Breve descripciÃ³n del sÃ­ntoma o motivo..." required></textarea>
                                     <span class="md-line"></span>
                                 </div>
 
@@ -122,7 +122,7 @@ require_once __DIR__ . '/../_config/runtime.php';
                                             <label>
                                                 <input type="checkbox" id="check" name="check">
                                                 <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                <span class="text-inverse">Confirmo que la información es verdadera.</span>
+                                                <span class="text-inverse">Confirmo que la informaciÃ³n es verdadera.</span>
                                             </label>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@ require_once __DIR__ . '/../_config/runtime.php';
     <script type="text/javascript">
     $(document).ready(function() {
         $('#especialidad').select2({ placeholder: "Seleccione especialidad", allowClear: true });
-        $('#medico').select2({ placeholder: "Seleccione un médico", allowClear: true });
+        $('#medico').select2({ placeholder: "Seleccione un mÃ©dico", allowClear: true });
         $('#servicio').select2({ placeholder: "Seleccione tipo de servicio", allowClear: true });
         $('#hora_cita').select2({ placeholder: "Seleccione horario", allowClear: true });
      
@@ -291,7 +291,7 @@ require_once __DIR__ . '/../_config/runtime.php';
         $('#medico').empty().append('<option value="">Primero seleccione especialidad</option>').val(null).trigger('change');
         $('#servicio').val(null).trigger('change');
         $('#fecha_cita').val('');
-        $('#hora_cita').empty().append('<option value="">Seleccione fecha y médico</option>').val(null).trigger('change');
+        $('#hora_cita').empty().append('<option value="">Seleccione fecha y mÃ©dico</option>').val(null).trigger('change');
 
         $('#formato').hide().empty();
         $('#registro').show();
@@ -322,29 +322,29 @@ require_once __DIR__ . '/../_config/runtime.php';
                     if (resultado.success) {
                         var correoInfo = "";
                         if (resultado.mail_sent === true) {
-                            correoInfo = "<p class='m-t-10 text-success'>Te enviamos un correo de confirmación.</p>";
+                            correoInfo = "<p class='m-t-10 text-success'>Te enviamos un correo de confirmaciï¿½n.</p>";
                         } else if (resultado.mail_sent === false) {
-                            correoInfo = "<p class='m-t-10 text-warning'>La cita se guardó, pero el correo de confirmación no pudo enviarse.</p>";
+                            correoInfo = "<p class='m-t-10 text-warning'>La cita se guardï¿½, pero el correo de confirmaciï¿½n no pudo enviarse.</p>";
                         }
 
                         $("#formato").html(
                             "<h3 class='text-success'><i class='icofont icofont-check-circled'></i> Cita registrada</h3>" +
-                            "<p class='m-t-15'>Tu cita quedó agendada exitosamente para el <strong>" + datos.fecha + "</strong>.</p>" +
+                            "<p class='m-t-15'>Tu cita quedï¿½ agendada exitosamente para el <strong>" + datos.fecha + "</strong>.</p>" +
                             correoInfo +
                             "<div class='m-t-20'><button type='button' id='btn_nueva_cita' class='btn btn-outline-primary waves-effect'>Registrar otra cita</button></div>"
                         );
                         $("#formato").show();
                         $("#registro").hide();
                     } else {
-                        alert("Falló el registro: " + resultado.message);
+                        alert("Fallï¿½ el registro: " + resultado.message);
                     }
                 },
                 error: function(xhr,desc,err){
-                    console.log("Error de conexión");
+                    console.log("Error de conexiï¿½n");
                 }
             });
         } else {
-            alert("Debe completar todos los campos obligatorios (incluyendo especialidad y servicio) y marcar la casilla de confirmación.");
+            alert("Debe completar todos los campos obligatorios (incluyendo especialidad y servicio) y marcar la casilla de confirmaciï¿½n.");
         }
     });
     </script>
