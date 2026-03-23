@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `usuarios` (
+﻿CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `usuario` VARCHAR(80) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
@@ -11,6 +11,6 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Recomendado: insertar usuarios con password_hash() desde PHP.
--- Ejemplo de semilla temporal (cambiar después del primer acceso):
+-- Ejemplo de semilla temporal (hash real, cambiar después del primer acceso):
 -- INSERT INTO usuarios (usuario, password, nombre, rol, activo)
--- VALUES ('admin', 'admin123', 'Administrador', 'admin', 1);
+-- VALUES ('admin', '$2y$10$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'Administrador', 'admin', 1);

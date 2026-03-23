@@ -148,7 +148,7 @@ class citas_dal extends class_db
             $lista[] = [
                 'id_cita' => $renglon['id_cita'],
                 'nombre_paciente' => $renglon['nombre_paciente'],
-                'telefono_paciente' => $renglon['telefono_paciente'], // Agregado aquÃ­
+                'telefono_paciente' => $renglon['telefono_paciente'], // Agregado aquí
                 'medico' => $renglon['medico'],
                 'servicio' => $renglon['servicio'],
                 'costo_servicio' => (float)$renglon['costo_servicio'],

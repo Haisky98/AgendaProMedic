@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../_config/runtime.php';
+
 if (!function_exists('agp_session_start')) {
     function agp_session_start()
     {

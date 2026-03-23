@@ -20,7 +20,7 @@ include_once('template/head.php');
                                 <div class="form-group mb-4">
                                     <label for="actual" class="form-label">Contraseña Actual</label>
                                     <div class="input-container">
-                                        <input type="text" name="actual" id="actual" class="form-control bg-transparent" placeholder="Contraseña Actual" required>
+                                        <input type="password" name="actual" id="actual" class="form-control bg-transparent" placeholder="Contraseña Actual" required>
                                     </div>
                                 </div>
 

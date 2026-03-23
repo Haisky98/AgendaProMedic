@@ -1,3 +1,8 @@
+<?php
+require_once __DIR__ . '/auth_guard.php';
+agp_require_role_page(['admin']);
+?>
+
 <div class="page-body">
   <div class="row">
     <div class="col-sm-12">

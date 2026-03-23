@@ -6,26 +6,18 @@ header('Content-Type: application/json; charset=utf-8');
 
 agp_require_role_json(['admin']);
 
+$id = isset($_POST['id']) ? (int)$_POST['id'] : 0;
 $usuario = isset($_POST['usuario']) ? trim($_POST['usuario']) : '';
 $nombre = isset($_POST['nombre']) ? trim($_POST['nombre']) : '';
-$password = $_POST['password'] ?? '';
-$passwordConfirm = $_POST['password_confirm'] ?? '';
 $idMedico = isset($_POST['id_medico']) ? (int)$_POST['id_medico'] : 0;
 $activo = isset($_POST['activo']) ? (int)$_POST['activo'] : 1;
-$rol = strtolower(trim($_POST['rol'] ?? 'medico'));
+$password = $_POST['password'] ?? '';
+$passwordConfirm = $_POST['password_confirm'] ?? '';
 
-if ($rol !== 'medico') {
+if ($id <= 0 || $usuario === '' || $nombre === '' || $idMedico <= 0) {
     echo json_encode([
         'success' => false,
-        'message' => 'Solo se permite registrar usuarios con rol médico.'
-    ]);
-    exit;
-}
-
-if ($usuario === '' || $nombre === '' || $password === '' || $passwordConfirm === '' || $idMedico <= 0) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Debes completar usuario, nombre, médico y contraseña.'
+        'message' => 'Debes completar id, usuario, nombre y médico.'
     ]);
     exit;
 }
@@ -68,28 +60,38 @@ if (!in_array($activo, [0, 1], true)) {
     exit;
 }
 
-if ($password !== $passwordConfirm) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'La confirmación de contraseña no coincide.'
-    ]);
-    exit;
-}
+if ($password !== '' || $passwordConfirm !== '') {
+    if ($password === '' || $passwordConfirm === '') {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Si deseas cambiar la contraseña, captura ambos campos.'
+        ]);
+        exit;
+    }
 
-$validPassword = agp_validar_password_basico($password, 6, 72);
-if (!$validPassword[0]) {
-    echo json_encode([
-        'success' => false,
-        'message' => $validPassword[2]
-    ]);
-    exit;
+    if ($password !== $passwordConfirm) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'La confirmación de contraseña no coincide.'
+        ]);
+        exit;
+    }
+
+    $validPassword = agp_validar_password_basico($password, 6, 72);
+    if (!$validPassword[0]) {
+        echo json_encode([
+            'success' => false,
+            'message' => $validPassword[2]
+        ]);
+        exit;
+    }
 }
 
 $usuariosDal = new class_usuario_dal();
-$resultado = $usuariosDal->create_usuario_medico($usuario, $password, $nombre, $idMedico, $activo);
+$resultado = $usuariosDal->update_usuario_medico($id, $usuario, $nombre, $idMedico, $activo, $password);
 
 echo json_encode([
     'success' => !empty($resultado['bool']),
-    'message' => $resultado['message'] ?? 'No fue posible crear el usuario.'
+    'message' => $resultado['message'] ?? 'No fue posible actualizar el usuario.'
 ], JSON_UNESCAPED_UNICODE);
 ?>

@@ -113,6 +113,72 @@ class class_usuario_dal extends class_db
         return $this->authConfig;
     }
 
+    public function migrar_passwords_legado()
+    {
+        $cfg = $this->getAuthConfig();
+        if (empty($cfg) || empty($cfg['pass_col'])) {
+            return ['bool' => false, 'message' => 'No se pudo resolver la tabla de usuarios.'];
+        }
+
+        $conn = $this->get_conexion();
+        $idKey = !empty($cfg['id_col']) ? $cfg['id_col'] : $cfg['user_col'];
+        $idExpr = $this->quoteIdentifier($idKey);
+        $passExpr = $this->quoteIdentifier($cfg['pass_col']);
+        $tableExpr = $this->quoteIdentifier($cfg['table']);
+
+        $sql = "SELECT $idExpr AS id_ref, $passExpr AS pass_stored
+                FROM $tableExpr";
+
+        $stmt = $conn->prepare($sql);
+        if (!$stmt) {
+            return ['bool' => false, 'message' => 'No se pudo preparar lectura de usuarios para migración.'];
+        }
+
+        if (!$stmt->execute()) {
+            return ['bool' => false, 'message' => 'No se pudo leer usuarios para migración.'];
+        }
+
+        $res = $stmt->get_result();
+        if (!$res) {
+            return ['bool' => false, 'message' => 'No se pudo obtener resultado para migración.'];
+        }
+
+        $migrados = 0;
+        while ($row = $res->fetch_assoc()) {
+            $passStored = (string)($row['pass_stored'] ?? '');
+            if ($passStored === '') {
+                continue;
+            }
+
+            $passwordInfo = password_get_info($passStored);
+            if (!empty($passwordInfo['algo'])) {
+                continue;
+            }
+
+            $hash = password_hash($passStored, PASSWORD_DEFAULT);
+            if ($hash === false) {
+                continue;
+            }
+
+            $sqlUpdate = "UPDATE $tableExpr
+                          SET $passExpr = ?
+                          WHERE $idExpr = ?
+                          LIMIT 1";
+            $stmtUpdate = $conn->prepare($sqlUpdate);
+            if (!$stmtUpdate) {
+                continue;
+            }
+
+            $idRef = (string)$row['id_ref'];
+            $stmtUpdate->bind_param("ss", $hash, $idRef);
+            if ($stmtUpdate->execute()) {
+                $migrados++;
+            }
+        }
+
+        return ['bool' => true, 'migrados' => $migrados];
+    }
+
     public function validar_usuario($usuario, $password)
     {
         $conn = $this->get_conexion();
@@ -151,12 +217,11 @@ class class_usuario_dal extends class_db
 
         $storedPassword = (string)$row['pass_stored'];
         $passwordInfo = password_get_info($storedPassword);
-
-        if (!empty($passwordInfo['algo'])) {
-            $isValidPassword = password_verify($password, $storedPassword);
-        } else {
-            $isValidPassword = hash_equals($storedPassword, $password);
+        if (empty($passwordInfo['algo'])) {
+            return null;
         }
+
+        $isValidPassword = password_verify($password, $storedPassword);
 
         if (!$isValidPassword) {
             return null;
@@ -174,12 +239,17 @@ class class_usuario_dal extends class_db
     public function actualizar_contrasena($usuario, $contrasena_actual, $nueva_contrasena, $confirmacion_contrasena)
     {
         if ($nueva_contrasena !== $confirmacion_contrasena) {
-            return "Las nuevas contrasenas no coinciden.";
+            return "Las nuevas contraseñas no coinciden.";
+        }
+
+        $len = function_exists('mb_strlen') ? mb_strlen((string)$nueva_contrasena, 'UTF-8') : strlen((string)$nueva_contrasena);
+        if ($len < 6 || $len > 72) {
+            return "La contraseña debe tener entre 6 y 72 caracteres.";
         }
 
         $user = $this->validar_usuario($usuario, $contrasena_actual);
         if (!$user) {
-            return "La contrasena actual es incorrecta o el usuario no existe.";
+            return "La contraseña actual es incorrecta o el usuario no existe.";
         }
 
         $cfg = $this->getAuthConfig();
@@ -195,15 +265,15 @@ class class_usuario_dal extends class_db
 
         $stmt = $conn->prepare($sql);
         if (!$stmt) {
-            return "Error al preparar la actualizacion de contrasena.";
+            return "Error al preparar la actualización de contraseña.";
         }
 
         $stmt->bind_param("ss", $newHash, $usuario);
         if ($stmt->execute()) {
-            return "Contrasena actualizada correctamente.";
+            return "Contraseña actualizada correctamente.";
         }
 
-        return "Error al actualizar la contrasena.";
+        return "Error al actualizar la contraseña.";
     }
 
     public function listar_usuarios()
@@ -311,7 +381,7 @@ class class_usuario_dal extends class_db
         $activo = (int)$activo;
 
         if ($usuario === '' || $password === '' || $nombre === '' || $id_medico <= 0) {
-            return ['bool' => false, 'message' => 'Debes capturar usuario, nombre, contrasena y medico.'];
+            return ['bool' => false, 'message' => 'Debes capturar usuario, nombre, contraseña y médico.'];
         }
 
         $conn = $this->get_conexion();
@@ -368,7 +438,205 @@ class class_usuario_dal extends class_db
             return ['bool' => false, 'message' => 'Error al guardar usuario: ' . $stmtInsert->error];
         }
 
-        return ['bool' => true, 'message' => 'Usuario medico creado correctamente.'];
+        return ['bool' => true, 'message' => 'Usuario médico creado correctamente.'];
+    }
+
+    public function update_usuario_medico($id, $usuario, $nombre, $id_medico, $activo = 1, $password = '')
+    {
+        $cfg = $this->getAuthConfig();
+        if (empty($cfg)) {
+            return ['bool' => false, 'message' => 'No se pudo resolver la tabla de usuarios.'];
+        }
+
+        if (empty($cfg['id_col'])) {
+            return ['bool' => false, 'message' => 'La tabla de usuarios no tiene columna ID.'];
+        }
+
+        if (empty($cfg['role_col'])) {
+            return ['bool' => false, 'message' => 'La tabla de usuarios no tiene columna de rol.'];
+        }
+
+        if (empty($cfg['medico_col'])) {
+            return ['bool' => false, 'message' => 'La tabla de usuarios no tiene columna id_medico.'];
+        }
+
+        $id = (int)$id;
+        $usuario = trim($usuario);
+        $nombre = trim($nombre);
+        $id_medico = (int)$id_medico;
+        $activo = (int)$activo;
+        $password = (string)$password;
+
+        if ($id <= 0 || $usuario === '' || $nombre === '' || $id_medico <= 0) {
+            return ['bool' => false, 'message' => 'Debes capturar id, usuario, nombre y médico.'];
+        }
+
+        $conn = $this->get_conexion();
+
+        $sqlActual = "SELECT " . $this->quoteIdentifier($cfg['role_col']) . " AS rol
+                      FROM " . $this->quoteIdentifier($cfg['table']) . "
+                      WHERE " . $this->quoteIdentifier($cfg['id_col']) . " = ?
+                      LIMIT 1";
+        $stmtActual = $conn->prepare($sqlActual);
+        if (!$stmtActual) {
+            return ['bool' => false, 'message' => 'No se pudo validar el usuario a actualizar.'];
+        }
+
+        $stmtActual->bind_param("i", $id);
+        $stmtActual->execute();
+        $resActual = $stmtActual->get_result();
+        if (!$resActual || $resActual->num_rows === 0) {
+            return ['bool' => false, 'message' => 'El usuario no existe.'];
+        }
+
+        $rowActual = $resActual->fetch_assoc();
+        $rolActual = strtolower(trim((string)($rowActual['rol'] ?? '')));
+        if ($rolActual !== 'medico') {
+            return ['bool' => false, 'message' => 'Solo se permite editar usuarios con rol médico.'];
+        }
+
+        $sqlExiste = "SELECT 1
+                      FROM " . $this->quoteIdentifier($cfg['table']) . "
+                      WHERE " . $this->quoteIdentifier($cfg['user_col']) . " = ?
+                        AND " . $this->quoteIdentifier($cfg['id_col']) . " <> ?
+                      LIMIT 1";
+        $stmtExiste = $conn->prepare($sqlExiste);
+        if (!$stmtExiste) {
+            return ['bool' => false, 'message' => 'No se pudo validar si el usuario ya existe.'];
+        }
+
+        $stmtExiste->bind_param("si", $usuario, $id);
+        $stmtExiste->execute();
+        $resExiste = $stmtExiste->get_result();
+        if ($resExiste && $resExiste->num_rows > 0) {
+            return ['bool' => false, 'message' => 'El nombre de usuario ya existe.'];
+        }
+
+        $setPartes = [];
+        $valores = [];
+        $tipos = '';
+
+        $setPartes[] = $this->quoteIdentifier($cfg['user_col']) . " = ?";
+        $valores[] = $usuario;
+        $tipos .= 's';
+
+        if (!empty($cfg['name_col'])) {
+            $setPartes[] = $this->quoteIdentifier($cfg['name_col']) . " = ?";
+            $valores[] = $nombre;
+            $tipos .= 's';
+        }
+
+        $setPartes[] = $this->quoteIdentifier($cfg['role_col']) . " = ?";
+        $valores[] = 'medico';
+        $tipos .= 's';
+
+        $setPartes[] = $this->quoteIdentifier($cfg['medico_col']) . " = ?";
+        $valores[] = $id_medico;
+        $tipos .= 'i';
+
+        if (!empty($cfg['active_col'])) {
+            $setPartes[] = $this->quoteIdentifier($cfg['active_col']) . " = ?";
+            $valores[] = $activo;
+            $tipos .= 'i';
+        }
+
+        if ($password !== '') {
+            if (strlen($password) < 6) {
+                return ['bool' => false, 'message' => 'La contraseña debe tener al menos 6 caracteres.'];
+            }
+
+            $hashPassword = password_hash($password, PASSWORD_DEFAULT);
+            $setPartes[] = $this->quoteIdentifier($cfg['pass_col']) . " = ?";
+            $valores[] = $hashPassword;
+            $tipos .= 's';
+        }
+
+        $sqlUpdate = "UPDATE " . $this->quoteIdentifier($cfg['table']) . "
+                      SET " . implode(', ', $setPartes) . "
+                      WHERE " . $this->quoteIdentifier($cfg['id_col']) . " = ?";
+        $valores[] = $id;
+        $tipos .= 'i';
+
+        $stmtUpdate = $conn->prepare($sqlUpdate);
+        if (!$stmtUpdate) {
+            return ['bool' => false, 'message' => 'No se pudo preparar la actualización del usuario.'];
+        }
+
+        $stmtUpdate->bind_param($tipos, ...$valores);
+        if (!$stmtUpdate->execute()) {
+            return ['bool' => false, 'message' => 'Error al actualizar usuario: ' . $stmtUpdate->error];
+        }
+
+        return ['bool' => true, 'message' => 'Usuario actualizado correctamente.'];
+    }
+
+    public function delete_usuario_medico($id, $idUsuarioActual = 0)
+    {
+        $cfg = $this->getAuthConfig();
+        if (empty($cfg)) {
+            return ['bool' => false, 'message' => 'No se pudo resolver la tabla de usuarios.'];
+        }
+
+        if (empty($cfg['id_col'])) {
+            return ['bool' => false, 'message' => 'La tabla de usuarios no tiene columna ID.'];
+        }
+
+        if (empty($cfg['role_col'])) {
+            return ['bool' => false, 'message' => 'La tabla de usuarios no tiene columna de rol.'];
+        }
+
+        $id = (int)$id;
+        $idUsuarioActual = (int)$idUsuarioActual;
+
+        if ($id <= 0) {
+            return ['bool' => false, 'message' => 'ID de usuario inválido.'];
+        }
+
+        if ($idUsuarioActual > 0 && $id === $idUsuarioActual) {
+            return ['bool' => false, 'message' => 'No puedes eliminar tu propio usuario en sesión.'];
+        }
+
+        $conn = $this->get_conexion();
+
+        $sqlActual = "SELECT " . $this->quoteIdentifier($cfg['role_col']) . " AS rol
+                      FROM " . $this->quoteIdentifier($cfg['table']) . "
+                      WHERE " . $this->quoteIdentifier($cfg['id_col']) . " = ?
+                      LIMIT 1";
+        $stmtActual = $conn->prepare($sqlActual);
+        if (!$stmtActual) {
+            return ['bool' => false, 'message' => 'No se pudo validar el usuario a eliminar.'];
+        }
+
+        $stmtActual->bind_param("i", $id);
+        $stmtActual->execute();
+        $resActual = $stmtActual->get_result();
+        if (!$resActual || $resActual->num_rows === 0) {
+            return ['bool' => false, 'message' => 'El usuario no existe.'];
+        }
+
+        $rowActual = $resActual->fetch_assoc();
+        $rolActual = strtolower(trim((string)($rowActual['rol'] ?? '')));
+        if ($rolActual !== 'medico') {
+            return ['bool' => false, 'message' => 'Solo se permite eliminar usuarios con rol médico.'];
+        }
+
+        $sqlDelete = "DELETE FROM " . $this->quoteIdentifier($cfg['table']) . "
+                      WHERE " . $this->quoteIdentifier($cfg['id_col']) . " = ?";
+        $stmtDelete = $conn->prepare($sqlDelete);
+        if (!$stmtDelete) {
+            return ['bool' => false, 'message' => 'No se pudo preparar la eliminación del usuario.'];
+        }
+
+        $stmtDelete->bind_param("i", $id);
+        if (!$stmtDelete->execute()) {
+            return ['bool' => false, 'message' => 'Error al eliminar usuario: ' . $stmtDelete->error];
+        }
+
+        if ($stmtDelete->affected_rows <= 0) {
+            return ['bool' => false, 'message' => 'No se eliminó ningún usuario.'];
+        }
+
+        return ['bool' => true, 'message' => 'Usuario eliminado correctamente.'];
     }
 }
 ?>

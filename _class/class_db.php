@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../_config/runtime.php';
+
 date_default_timezone_set('America/Mexico_City');
 if(class_exists('class_db') != true)
 {
@@ -10,8 +12,9 @@ if(class_exists('class_db') != true)
         //Base de Datos
         public function __construct()
         {
+            $remoteAddr = $_SERVER['REMOTE_ADDR'] ?? '';
             // Si la IP es local 
-            if ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1') {
+            if ($remoteAddr == '127.0.0.1' || $remoteAddr == '::1') {
                 $this->set_db("localhost", "root", "", "agendapromedic");
             } else {
                 // Si el codigo ya esta subido en InfinityFree
