@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once("class_db.php");
 
 class citas_dal extends class_db

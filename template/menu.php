@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $rolActual = strtolower(trim($_SESSION['rol'] ?? ''));
 $esAdmin = ($rolActual === 'admin');
 $esMedico = ($rolActual === 'medico');

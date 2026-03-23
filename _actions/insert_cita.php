@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once("../_class/class_citas_dal.php");
 include_once("../_class/class_mailer.php");
 require_once __DIR__ . '/../_class/validation_helper.php';

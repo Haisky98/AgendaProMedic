@@ -52,11 +52,11 @@ CREATE TABLE `cat_especialidades`  (
 -- ----------------------------
 -- Records of cat_especialidades
 -- ----------------------------
-INSERT INTO `cat_especialidades` VALUES (1, 'Medicina General', 'AtenciÃ³n mÃ©dica primaria y valoraciÃ³n inicial', 1);
-INSERT INTO `cat_especialidades` VALUES (2, 'PediatrÃ­a', 'AtenciÃ³n mÃ©dica integral para niÃ±os y adolescentes', 1);
-INSERT INTO `cat_especialidades` VALUES (3, 'GinecologÃ­a', 'Salud del sistema reproductor femenino', 1);
-INSERT INTO `cat_especialidades` VALUES (4, 'OdontologÃ­a', 'Cuidado y tratamiento dental', 1);
-INSERT INTO `cat_especialidades` VALUES (5, 'PsicologÃ­a', 'AtenciÃ³n a la salud mental y emocional', 1);
+INSERT INTO `cat_especialidades` VALUES (1, 'Medicina General', 'Atención médica primaria y valoración inicial', 1);
+INSERT INTO `cat_especialidades` VALUES (2, 'Pediatría', 'Atención médica integral para niños y adolescentes', 1);
+INSERT INTO `cat_especialidades` VALUES (3, 'Ginecología', 'Salud del sistema reproductor femenino', 1);
+INSERT INTO `cat_especialidades` VALUES (4, 'Odontología', 'Cuidado y tratamiento dental', 1);
+INSERT INTO `cat_especialidades` VALUES (5, 'Psicología', 'Atención a la salud mental y emocional', 1);
 
 -- ----------------------------
 -- Table structure for cat_estatus_cita
@@ -77,7 +77,7 @@ INSERT INTO `cat_estatus_cita` VALUES (2, 'Confirmada', 1);
 INSERT INTO `cat_estatus_cita` VALUES (3, 'En Curso', 1);
 INSERT INTO `cat_estatus_cita` VALUES (4, 'Finalizada', 1);
 INSERT INTO `cat_estatus_cita` VALUES (5, 'Cancelada', 1);
-INSERT INTO `cat_estatus_cita` VALUES (6, 'No AsistiÃ³', 1);
+INSERT INTO `cat_estatus_cita` VALUES (6, 'No Asistió', 1);
 
 -- ----------------------------
 -- Table structure for cat_hora_cita
@@ -129,8 +129,8 @@ CREATE TABLE `cat_servicios`  (
 INSERT INTO `cat_servicios` VALUES (1, 1, 'Consulta Primera Vez', 45, 500.00, 1);
 INSERT INTO `cat_servicios` VALUES (2, 1, 'Consulta de Seguimiento', 30, 300.00, 1);
 INSERT INTO `cat_servicios` VALUES (3, 4, 'Limpieza Dental', 45, 600.00, 1);
-INSERT INTO `cat_servicios` VALUES (4, 1, 'ExpediciÃ³n Certificado MÃ©dico', 15, 200.00, 1);
-INSERT INTO `cat_servicios` VALUES (5, 2, 'ValoraciÃ³n PediÃ¡trica', 40, 500.00, 1);
+INSERT INTO `cat_servicios` VALUES (4, 1, 'Expedición Certificado Médico', 15, 200.00, 1);
+INSERT INTO `cat_servicios` VALUES (5, 2, 'Valoración Pediátrica', 40, 500.00, 1);
 -- ----------------------------
 -- Table structure for citas
 -- ----------------------------
@@ -191,9 +191,9 @@ CREATE TABLE `medicos`  (
 -- ----------------------------
 -- Records of medicos
 -- ----------------------------
-INSERT INTO `medicos` VALUES (1, 'Dr. Roberto MartÃ­nez', 'CED1234567', 1, 1, '8441234567', 'roberto.mtz@clinica.com', 1);
-INSERT INTO `medicos` VALUES (2, 'Dra. Ana SofÃ­a Garza', 'CED7654321', 2, 2, '8447654321', 'ana.garza@clinica.com', 1);
-INSERT INTO `medicos` VALUES (3, 'Dra. Elena RodrÃ­guez', 'CED1122334', 3, 3, '8441122334', 'elena.rdz@clinica.com', 1);
+INSERT INTO `medicos` VALUES (1, 'Dr. Roberto Martínez', 'CED1234567', 1, 1, '8441234567', 'roberto.mtz@clinica.com', 1);
+INSERT INTO `medicos` VALUES (2, 'Dra. Ana Sofía Garza', 'CED7654321', 2, 2, '8447654321', 'ana.garza@clinica.com', 1);
+INSERT INTO `medicos` VALUES (3, 'Dra. Elena Rodríguez', 'CED1122334', 3, 3, '8441122334', 'elena.rdz@clinica.com', 1);
 INSERT INTO `medicos` VALUES (4, 'Dr. Carlos Ruiz', 'CED4433221', 1, 4, '8444433221', 'carlos.ruiz@clinica.com', 1);
 
 -- ----------------------------
@@ -218,6 +218,6 @@ CREATE TABLE `usuarios`  (
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
-INSERT INTO `usuarios` VALUES (1, 'ADMIN', '123', 'Administrador', 'admin', NULL, 1, '2026-03-02 19:08:30');
+INSERT INTO `usuarios` VALUES (1, 'ADMIN', '$2y$10$o5q6lCYLe8JeNagnGqaIU.hM5hKbXldHdRJNzcDruuzQbTVQgV/tS', 'Administrador', 'admin', NULL, 1, '2026-03-02 19:08:30');
 
 SET FOREIGN_KEY_CHECKS = 1;

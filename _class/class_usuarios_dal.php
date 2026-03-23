@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include("class_db.php");
 
 class class_usuario_dal extends class_db
