@@ -1,15 +1,15 @@
 <nav class="navbar header-navbar pcoded-header">
                 <div class="navbar-wrapper">
 
-                    <div class="navbar-logo">
-                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                    <div class="navbar-logo" style="background-color: #fff; color: #000000; margin-left: 10px;">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!" style="color: #000000;">
                             <i class="ti-menu"></i>
                         </a>
                         <a class="mobile-search morphsearch-search" href="#">
                             <i class="ti-search"></i>
                         </a>
                         <a href="index.php">
-                            <img  src="assets/images/logo.jpg" style="width: 140px; height: auto" alt="Theme-Logo" />
+                            <img  src="assets/images/logo-png.png" style="width: 140px; height: auto" alt="Theme-Logo" />
                         </a>
                         <a class="mobile-options">
                             <i class="ti-more"></i>

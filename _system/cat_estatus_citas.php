@@ -44,6 +44,7 @@ agp_require_role_page(['admin']);
   </div>
 </div>
 
+
 <script>
   $(document).ready(function() {
     cargarTablaEstatus();

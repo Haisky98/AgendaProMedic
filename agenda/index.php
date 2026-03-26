@@ -10,9 +10,10 @@ require_once __DIR__ . '/../_config/runtime.php';
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/icon/themify-icons/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="../assets/icon/icofont/css/icofont.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/StyleCita.css">
     <link rel="stylesheet" type="text/css" href="../assets/timepicker/jquery.datetimepicker.css"/>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .select2-container--default .select2-selection--single {
             border: none !important;
@@ -41,102 +42,134 @@ require_once __DIR__ . '/../_config/runtime.php';
 
 <body class="fix-menu">
     <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="card-block auth-body mr-auto ml-auto">
-                        <form class="md-float-material">
-                            <div class="text-left">
-                            </div>
-                            <div class="auth-box" id="registro">
-                                <div class="row m-b-20">
-                                    <div class="col-md-12">
-                                        <h3 class="text-center txt-primary">Agendar Cita Médica</h3>
+        <!-- Elementos decorativos -->
+        <div class="bg-decoration">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        
+        <!-- Ondas animadas -->
+        <div class="waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        
+        <!-- Estrellas -->
+        <div class="stars" id="stars"></div>
+
+        <div class="main-container">
+            <div class="appointment-card-elegant">
+                <div class="card-header-elegant">
+                    <h2><i class="fas fa-calendar-plus" style="margin-right: 12px;"></i>Agendar Cita Médica</h2>
+                    <p>Completa el formulario para solicitar tu cita de manera rápida y sencilla</p>
+                </div>
+
+                <div class="card-body-elegant">
+                    <!-- Formulario de registro -->
+                    <div id="registro">
+                        <form>
+                            <div class="form-grid">
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-id-card"></i> CURP (Opcional)</label>
+                                    <div class="input-icon-wrapper">
+                                        <i class="fas fa-id-card input-icon"></i>
+                                        <input type="text" id="curp" name="curp" class="input-field-elegant" placeholder="CURP" maxlength="18" onkeyup="this.value = this.value.toUpperCase();">
                                     </div>
                                 </div>
-                                <hr/>
-                                
-                                <div class="input-group">
-                                    <input type="text" id="curp" name="curp" class="form-control" placeholder="CURP (Opcional)" maxlength="18" onkeyup="this.value = this.value.toUpperCase();">
-                                    <span class="md-line"></span>
-                                </div>
-                                <div class="input-group">
-                                    <input type="text" id="nombre_completo" name="nombre_completo" class="form-control" placeholder="Nombre Completo" required>
-                                    <span class="md-line"></span>
-                                </div>
-                                <div class="input-group">
-                                    <input type="number" id="telefono" name="telefono" class="form-control" placeholder="Teléfono (10 dígitos)" maxlength="10" onKeyDown="limitText(this,10);" onKeyUp="limitText(this,10);" required>
-                                    <span class="md-line"></span>
-                                    
-                                    <input type="email" id="correo" name="correo" class="form-control" placeholder="Correo electrónico">
-                                    <span class="md-line"></span>
+
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-user"></i> Nombre Completo *</label>
+                                    <div class="input-icon-wrapper">
+                                        <i class="fas fa-user input-icon"></i>
+                                        <input type="text" id="nombre_completo" name="nombre_completo" class="input-field-elegant" placeholder="Nombre completo" required>
+                                    </div>
                                 </div>
 
-                                <div class="input-group">
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-phone"></i> Teléfono *</label>
+                                    <div class="input-icon-wrapper">
+                                        <i class="fas fa-phone input-icon"></i>
+                                        <input type="number" id="telefono" name="telefono" class="input-field-elegant" placeholder="10 dígitos" maxlength="10" onKeyDown="limitText(this,10);" onKeyUp="limitText(this,10);" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                                    <div class="input-icon-wrapper">
+                                        <i class="fas fa-envelope input-icon"></i>
+                                        <input type="email" id="correo" name="correo" class="input-field-elegant" placeholder="correo@ejemplo.com">
+                                    </div>
+                                </div>
+
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-stethoscope"></i> Especialidad *</label>
                                     <select class="form-control" id="especialidad" name="especialidad" required style="width: 100%;">
                                         <option value="">Seleccione especialidad</option>
                                     </select>
-                                    <span class="md-line"></span>
                                 </div>
-                                
-                                <div class="input-group">
+
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-user-md"></i> Médico *</label>
                                     <select class="form-control" id="medico" name="medico" required style="width: 100%;">
                                         <option value="">Primero seleccione especialidad</option>
                                     </select>
-                                    <span class="md-line"></span>
                                 </div>
-                                
-                                <div class="input-group">
+
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-clinic-medical"></i> Tipo de Servicio *</label>
                                     <select class="form-control" id="servicio" name="servicio" required style="width: 100%;">
                                         <option value="">Seleccione tipo de servicio</option>
                                     </select>
-                                    <span class="md-line"></span>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <input type="date" name="fecha_cita" id="fecha_cita" class="form-control datetimepicker" placeholder="Seleccione fecha" autocomplete="off" required>
-                                            <span class="md-line"></span>
-                                        </div>
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-calendar-day"></i> Fecha *</label>
+                                    <div class="input-icon-wrapper">
+                                        <i class="fas fa-calendar-alt input-icon"></i>
+                                        <input type="text" id="fecha_cita" name="fecha_cita" class="input-field-elegant datetimepicker" placeholder="Seleccione fecha" autocomplete="off" required>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group">
-                                            <select class="form-control" id="hora_cita" name="hora_cita" required style="width: 100%;">
-                                                <option value="">Seleccione fecha y médico</option>
-                                            </select>
-                                            <span class="md-line"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group m-t-15">
-                                    <label for="motivo" class="text-left text-dark d-block">Motivo de la Cita:</label>
-                                    <textarea id="motivo" name="motivo" class="form-control" rows="3" placeholder="Breve descripción del síntoma o motivo..." required></textarea>
-                                    <span class="md-line"></span>
                                 </div>
 
-                                <div class="row m-t-25 text-left">
-                                    <div class="col-md-12">
-                                        <div class="checkbox-fade fade-in-primary">
-                                            <label>
-                                                <input type="checkbox" id="check" name="check">
-                                                <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
-                                                <span class="text-inverse">Confirmo que la información es verdadera.</span>
-                                            </label>
-                                        </div>
-                                    </div>
+                                <div class="form-group-elegant">
+                                    <label><i class="fas fa-clock"></i> Hora *</label>
+                                    <select class="form-control" id="hora_cita" name="hora_cita" required style="width: 100%;">
+                                        <option value="">Seleccione fecha y médico</option>
+                                    </select>
                                 </div>
-                                <div class="row m-t-30">
-                                    <div class="col-md-12">
-                                        <button type="button" id="btn_registro" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Confirmar Cita</button>
-                                    </div>
+
+                                <div class="full-width form-group-elegant">
+                                    <label><i class="fas fa-notes-medical"></i> Motivo de la Cita *</label>
+                                    <textarea id="motivo" name="motivo" class="input-field-elegant" rows="3" placeholder="Breve descripción del síntoma o motivo de la consulta..."></textarea>
                                 </div>
                             </div>
-                            
-                            <div class="auth-box" id="formato" style="display:none; color: black; background-color: #fff; padding: 30px; border-radius: 5px;">
-                                </div>
+
+                            <label class="checkbox-elegant">
+                                <input type="checkbox" id="check" name="check">
+                                <span>Confirmo que la información proporcionada es verdadera y acepto los términos y condiciones.</span>
+                            </label>
+
+                            <button type="button" id="btn_registro" class="btn-submit-elegant">
+                                <i class="fas fa-check-circle"></i> Confirmar Cita
+                            </button>
+<!-- 
+                            <a href="login.html" class="btn-back-elegant">
+                                <i class="fas fa-arrow-left"></i> Volver al inicio
+                            </a> -->
                         </form>
+                    </div>
+
+                    <!-- Mensaje de éxito -->
+                    <div id="formato" style="display:none;">
+                        <div class="success-message">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>¡Cita registrada exitosamente!</h3>
+                            <p>Tu cita ha sido agendada. Recibirás un correo de confirmación con los detalles.</p>
+                            <button type="button" id="btn_nueva_cita" class="btn-submit-elegant" style="margin-top: 20px;">
+                                <i class="fas fa-plus-circle"></i> Registrar otra cita
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -149,6 +182,25 @@ require_once __DIR__ . '/../_config/runtime.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
     <script type="text/javascript">
+
+    function createStars() {
+        const starsContainer = document.getElementById('stars');
+        const starCount = 80;
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.animationDuration = Math.random() * 3 + 2 + 's';
+            starsContainer.appendChild(star);
+        }
+    }
+
     $(document).ready(function() {
         $('#especialidad').select2({ placeholder: "Seleccione especialidad", allowClear: true });
         $('#medico').select2({ placeholder: "Seleccione un médico", allowClear: true });

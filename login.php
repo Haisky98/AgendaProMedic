@@ -36,9 +36,11 @@ if (agp_is_authenticated()) {
     <!-- ico font -->
     <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
     <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/StyleLogin.css">
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     
 </head>
@@ -46,77 +48,101 @@ if (agp_is_authenticated()) {
 <body class="fix-menu">
     <!-- Pre-loader start -->
     <div class="theme-loader">
-    <div class="ball-scale">
-        <div class='contain'>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
-            <div class="ring"><div class="frame"></div></div>
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+                <div class="ring"><div class="frame"></div></div>
+            </div>
         </div>
     </div>
-</div>
     <!-- Pre-loader end -->
 
     <section class="login p-fixed d-flex text-center bg-primary common-img-bg">
-        <!-- Container-fluid starts -->
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <!-- Authentication card start -->
-                    <div class="login-card card-block auth-body mr-auto ml-auto">
-                        <form class="md-float-material">
-                            <div class="text-center">
-                                <img src="assets/images/logo.jpg" width="99%" alt="logo.jpg">
-                            </div>
-                            <div class="auth-box">
-                                <div class="row m-b-20">
-                                    <div class="col-md-12">
-                                        <h3 class="text-left txt-primary"> Iniciar Sesión </h3>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div class="input-group">
-                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresa tu usuario" >
-                                    <span class="md-line"></span>
-                                </div>
-                                <div class="input-group">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" >
-                                    <span class="md-line"></span>
-                                </div>
-                                <div class="row m-t-30">
-                                    <div class="col-md-12">
-                                        <button type="button" id="btn_login" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Entrar</button>
-                                    </div>
-                                </div>
-                                <hr/>
-                                <div class="row m-b-20">
-                                    <div class="col-md-12" style="color:black" align="left">
-                                        <label>Da Clic Aqui para Agendar Cita:</label>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <a href="agenda/" type="button" class="btn btn-warning btn-md btn-block waves-effect text-center m-b-20">Agendar Cita</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </form>
-                        <!-- end of form -->
-                    </div>
-                    <!-- Authentication card end -->
-                </div>
-                <!-- end of col-sm-12 -->
-            </div>
-            <!-- end of row -->
+        <!-- Elementos decorativos -->
+        <div class="bg-decoration">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
         </div>
-        <!-- end of container-fluid -->
-    </section>
+        
+        <!-- Ondas animadas -->
+        <div class="waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+        
+        <!-- Estrellas brillantes -->
+        <div class="stars" id="stars"></div>
 
+        <div class="main-container">
+            <div class="login-card-elegant">
+                <div class="card-header-elegant">
+                    <div class="logo-wrapper">
+                        <img src="assets/images/logo-png.png" alt="Agenda Pro Medic">
+                    </div>
+                    <h2>Bienvenido de vuelta</h2>
+                    <p>Ingresa tus credenciales para acceder al sistema</p>
+                </div>
+                
+                <div class="card-body-elegant">
+                    <form class="md-float-material">
+                        <div class="form-group-elegant">
+                            <label>
+                                <i class="fas fa-user-circle" style="margin-right: 8px;"></i>
+                                Usuario
+                            </label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" name="usuario" id="usuario" class="input-field-elegant" placeholder="Ingresa tu usuario" autocomplete="off">
+                                <span class="md-line"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group-elegant">
+                            <label>
+                                <i class="fas fa-lock" style="margin-right: 8px;"></i>
+                                Contraseña
+                            </label>
+                            <div class="input-icon-wrapper">
+                                <i class="fas fa-key input-icon"></i>
+                                <input type="password" name="password" id="password" class="input-field-elegant" placeholder="Ingresa tu contraseña">
+                                <span class="md-line"></span>
+                            </div>
+                            <!-- <div class="help-link">
+                                <a href="#">
+                                    <i class="fas fa-question-circle"></i> ¿Olvidaste tu contraseña?
+                                </a>
+                            </div> -->
+                        </div>
+                        
+                        <button type="button" id="btn_login" class="btn-login-elegant">
+                            <i class="fas fa-arrow-right-to-bracket"></i>
+                            Iniciar Sesión
+                        </button>
+                        
+                        <div class="divider-elegant">
+                            <span>¿Necesitas una cita?</span>
+                        </div>
+                        
+                        <a href="agenda/" class="btn-appointment-elegant">
+                            <i class="fas fa-calendar-check"></i>
+                            Agendar Cita
+                        </a>
+                    </form>
+                    <!-- end of form -->
+                </div>
+            </div>
+        </div>
+    </section>
     
     <!-- Warning Section Starts -->
     <!-- Older IE warning message -->
@@ -178,6 +204,26 @@ if (agp_is_authenticated()) {
 
 
     <script>
+
+            // Crear estrellas brillantes
+    function createStars() {
+        const starsContainer = document.getElementById('stars');
+        const starCount = 80;
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            const size = Math.random() * 3 + 1;
+            star.style.width = size + 'px';
+            star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            star.style.animationDuration = Math.random() * 3 + 2 + 's';
+            starsContainer.appendChild(star);
+        }
+    }
+    
 $(document).ready(function () {
     $("#btn_login").on("click", function () {
         const usuario = $("#usuario").val().trim();

@@ -1,0 +1,168 @@
+[24-Mar-2026 19:45:18 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 19:53:48 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 19:54:15 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 19:54:20 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:05:15 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:06:34 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:25:41 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:26:02 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:26:41 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:27:29 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:27:48 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:29:28 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:30:03 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:30:29 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:31:08 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:31:31 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:32:55 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:33:35 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[24-Mar-2026 20:34:19 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown database 'agendapromedic' in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[25-Mar-2026 11:57:19 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38
+[25-Mar-2026 17:15:14 America/Mexico_City] PHP Fatal error:  Uncaught mysqli_sql_exception: No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php:38
+Stack trace:
+#0 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(38): mysqli_connect('localhost', 'root', Object(SensitiveParameterValue), 'agendapromedic')
+#1 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php(18): class_db->set_db('localhost', 'root', '', 'agendapromedic')
+#2 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_cat_especialidades_dal.php(8): class_db->__construct()
+#3 C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_actions\get_especialidades.php(4): especialidades_dal->__construct()
+#4 {main}
+  thrown in C:\laragon\www\AgendaProMedic\AgendaProMedic\AgendaProMedic\_class\class_db.php on line 38

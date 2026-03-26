@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/_class/session_helper.php';
 date_default_timezone_set('America/Mexico_City');
-agp_require_auth_page('login.php');
+agp_require_auth_page('IndexPrincipal.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
