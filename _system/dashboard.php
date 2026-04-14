@@ -2,6 +2,7 @@
     <style>
         /* Contenedor principal */
         .dashboard-container {
+            padding: 24px;
             max-width: 1400px;
             margin: 0 auto;
         }

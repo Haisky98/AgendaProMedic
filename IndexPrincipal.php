@@ -696,7 +696,7 @@
     <section class="cta" data-aos="zoom-in" style="max-width:1200px; margin:3rem auto;">
         <h2 style="font-size:2rem;">La nueva era de la gestión médica te espera</h2>
         <p style="margin-bottom:2rem;">Únete a la comunidad que ya optimiza su tiempo y mejora la experiencia del paciente.</p>
-        <a href="#agendar" class="btn-primary" style="background: linear-gradient(115deg, #2a4955, #5f91a5); color:white;"><i class="fas fa-arrow-right"></i> Empieza gratis — sin tarjeta</a>
+        <!-- <a href="#agendar" class="btn-primary" style="background: linear-gradient(115deg, #2a4955, #5f91a5); color:white;"><i class="fas fa-arrow-right"></i> Empieza gratis — sin tarjeta</a> -->
     </section>
 </main>
 
